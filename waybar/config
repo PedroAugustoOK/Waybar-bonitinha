@@ -1,0 +1,109 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "font-weight": "normal",
+    "gtk-layer-shell": "true",
+    "exclusive": true,
+    "passtrough": false,
+    "height": 10,
+    "modules-left": [
+        "custom/arch",
+        "custom/spotify"
+    ],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "tray",
+        "network",
+	"bluetooth",
+        "pulseaudio",
+	"battery",
+        "clock",
+        "custom/powermenu"
+    ],
+    "custom/arch": {
+        "format":"  ",
+      "tooltip": false,
+      "on-click": "rofi -show drun"
+    },
+    "custom/powermenu": {
+        "format":" ⏻ ",
+      "tooltip": false,
+      "on-click": "wlogout"
+    },
+    "bluetooth": {
+    "format": "  ",
+    "format-disabled": " 󰂲 ",
+    "format-connected": "  ",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueman-manager &"
+  },
+      "battery": {
+      "bat": "BAT1",
+      "format-charging": "󰚥",
+      "adapter": "ADP0",
+      "interval": 1,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon}",
+      "format-warning": "{icon}",
+      "format-critical": "{icon}",
+
+      "format-alt": "{icon} {time}",
+      "format-full": "   ",
+      "format-icons": ["   ", "   ", "   ", "   ", "   "]
+    },
+"hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-click": "activate",
+        "format": "{icon}",
+     },
+    "tray": {
+        "icon-size": 13,
+        "tooltip": false,
+        "spacing": 10
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 ~/.config/waybar/modules/spotify.py --player spotify",
+        "format": " {}",
+        "return-type": "json",
+  "on-click": "playerctl --player=spotify play-pause",
+  "on-click-right": "playerctl --player=spotify next",
+  "on-click-middle": "flatpak run com.spotify.Client",
+  "on-scroll-up": "playerctl --player=spotify volume 0.05+",
+  "on-scroll-down": "playerctl --player=spotify volume 0.05-"
+    },
+"pulseaudio": {
+        "format": "{icon}",
+        "format-muted": " 󰖁 ",
+        "format-icons": {
+            "default": ["  ", "  ", "  "]
+        },
+        "on-click": "pavucontrol &",
+	 "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+     	"tooltip-format": "{volume}%",
+    },
+
+"network": {
+        /* "format-wifi": "直", */
+        "format-wifi": " {icon}",
+        "format-ethernet": " ",
+        "format-disconnected": "睊",
+        "tooltip-format": "{essid}",
+        "on-click": "kitty --class=Impala -e impala",
+        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤢 ","󰤨 "],
+    },
+    "clock": {
+        "format": "󰥔{:%R} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    },
+}
+
