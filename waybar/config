@@ -51,11 +51,11 @@
       "format": "{icon}",
       "format-warning": "{icon}",
       "format-critical": "{icon}",
-
-      "format-alt": "{icon} {time}",
+      "format-alt": "{icon} {capacity}%",
       "format-full": "   ",
       "format-icons": ["   ", "   ", "   ", "   ", "   "]
     },
+
 "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
@@ -69,6 +69,7 @@
         "tooltip": false,
         "spacing": 10
     },
+
     "custom/spotify": {
         "exec": "/usr/bin/python3 ~/.config/waybar/modules/spotify.py --player spotify",
         "format": " {}",
@@ -79,6 +80,7 @@
   "on-scroll-up": "playerctl --player=spotify volume 0.05+",
   "on-scroll-down": "playerctl --player=spotify volume 0.05-"
     },
+
 "pulseaudio": {
         "format": "{icon}",
         "format-muted": " 󰖁 ",
@@ -100,6 +102,7 @@
         "on-click": "kitty --class=Impala -e impala",
         "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤢 ","󰤨 "],
     },
+
     "clock": {
         "format": "󰥔{:%R} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
